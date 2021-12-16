@@ -43,4 +43,13 @@ public class TacoController {
         tacoRepository.flush(); //Comando para gravar a nova aposta efetivamente
         return taco;
     }
+
+    @DeleteMapping("{id}")
+    public Taco deletar(@PathVariable Integer id){
+        Taco excluir = tacoRepository.findById(id).get();
+        excluir.setAtivo(false);
+        tacoRepository.save(excluir);
+        tacoRepository.flush();
+        return excluir;
+    }
 }
