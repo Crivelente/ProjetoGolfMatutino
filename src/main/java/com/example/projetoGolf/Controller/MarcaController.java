@@ -1,4 +1,4 @@
-package com.example.projetoGolf.Controller;
+package com.example.projetoGolf.controller;
 
 import com.example.projetoGolf.entities.Marca;
 import com.example.projetoGolf.repositories.MarcaRepository;
@@ -29,6 +29,13 @@ public class MarcaController {
     public Marca incluir (@RequestBody Marca marca){
         System.out.println("Incluindo nova marca: " + marca.getNome());
         marca.setIdMarca(0);
+        marcaRepository.save(marca);
+        marcaRepository.flush();
+        return marca;
+    }
+
+    @PutMapping
+    public Marca alterar(@RequestBody Marca marca) {
         marcaRepository.save(marca);
         marcaRepository.flush();
         return marca;
