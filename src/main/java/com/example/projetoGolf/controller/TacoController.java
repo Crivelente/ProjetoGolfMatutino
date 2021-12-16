@@ -27,14 +27,6 @@ public class TacoController {
         return taco;
     }
 
-    @PostMapping //Mapeia o POST na URL
-    public Taco incluir(@RequestBody Taco taco) {
-        taco.setIdTaco(0);
-        tacoRepository.save(taco);
-        tacoRepository.flush(); //Comando para gravar a nova aposta efetivamente
-        return taco;
-    }
-
     @PutMapping  //Mapeia o POST na URL
     public Taco alterar(@RequestBody Taco taco) {
         tacoRepository.save(taco);
