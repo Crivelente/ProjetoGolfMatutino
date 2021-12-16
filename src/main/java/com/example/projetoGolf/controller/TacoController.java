@@ -17,7 +17,7 @@ public class TacoController {
 
     @GetMapping()
     public List<Taco> listar() {
-        List<Taco> lista = tacoRepository.findAll();
+        List<Taco> lista = tacoRepository.findByAtivo(true);
         return lista;
     }
 
