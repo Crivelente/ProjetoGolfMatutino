@@ -19,14 +19,18 @@ public class Taco {
     @Column(name = "idMarca")
     private Integer idMarca;
 
+    @Column(name="ativo")
+    private Boolean ativo;
+
     public Taco() {
     }
 
-    public Taco(Integer idTaco, Integer numero, String nome, Integer idMarca) {
+    public Taco(Integer idTaco, Integer numero, String nome, Integer idMarca, Boolean ativo) {
         this.idTaco = idTaco;
         this.numero = numero;
         this.nome = nome;
         this.idMarca = idMarca;
+        this.ativo = ativo;
     }
 
     public Integer getIdTaco() {
@@ -60,4 +64,8 @@ public class Taco {
     public void setIdMarca(Integer idMarca) {
         this.idMarca = idMarca;
     }
+
+    public void setAtivo(Boolean ativo) { this.ativo = ativo; }
 }
+
+
