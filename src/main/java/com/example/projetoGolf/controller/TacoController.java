@@ -32,6 +32,7 @@ public class TacoController {
 
         System.out.println("Incluindo taco: " + taco.getNome());
         taco.setIdTaco(0);
+        taco.setAtivo(true);
         tacoRepository.save(taco);
         tacoRepository.flush();
         return taco;
@@ -47,6 +48,15 @@ public class TacoController {
     @DeleteMapping("{id}")
     public Taco deletar(@PathVariable Integer id){
         Taco excluir = tacoRepository.findById(id).get();
+        excluir.setAtivo(false);
+        tacoRepository.save(excluir);
+        tacoRepository.flush();
+        return excluir;
+    }
+
+    @DeleteMapping
+    public Taco deletar(@RequestBody Taco taco) {
+        Taco excluir = tacoRepository.findById(taco.getIdTaco()).get();
         excluir.setAtivo(false);
         tacoRepository.save(excluir);
         tacoRepository.flush();

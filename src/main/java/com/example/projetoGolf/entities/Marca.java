@@ -12,12 +12,12 @@ public class Marca {
     @Column Integer idMarca;
 
     @Column (name= "nome")
-    private Integer nome;
+    private String nome;
 
     public Marca() {
     }
 
-    public Marca(Integer idMarca, Integer nome) {
+    public Marca(Integer idMarca, String nome) {
         this.idMarca = idMarca;
         this.nome = nome;
     }
@@ -30,11 +30,11 @@ public class Marca {
         this.idMarca = idMarca;
     }
 
-    public Integer getNome() {
+    public String getNome() {
         return nome;
     }
 
-    public void setNome(Integer nome) {
+    public void setNome(String nome) {
         this.nome = nome;
     }
 }
