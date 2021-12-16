@@ -27,6 +27,16 @@ public class TacoController {
         return taco;
     }
 
+    @PostMapping
+    public Taco incluir (@RequestBody Taco taco){
+
+        System.out.println("Incluindo taco: " + taco.getNome());
+        taco.setIdTaco(0);
+        tacoRepository.save(taco);
+        tacoRepository.flush();
+        return taco;
+    }
+
     @PutMapping  //Mapeia o POST na URL
     public Taco alterar(@RequestBody Taco taco) {
         tacoRepository.save(taco);
