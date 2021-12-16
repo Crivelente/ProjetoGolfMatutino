@@ -14,6 +14,9 @@ public class Marca {
     @Column (name= "nome")
     private Integer nome;
 
+    public Marca() {
+    }
+
     public Marca(Integer idMarca, Integer nome) {
         this.idMarca = idMarca;
         this.nome = nome;
